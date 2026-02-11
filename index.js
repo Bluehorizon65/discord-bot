@@ -2,6 +2,23 @@ require('dotenv').config();
 const { Client, GatewayIntentBits, Collection } = require('discord.js');
 const fs = require('fs');
 const path = require('path');
+const express = require('express');
+
+/* ================= WEB SERVER (FOR REPLIT) ================= */
+
+const app = express();
+
+app.get('/', (req, res) => {
+  res.send('🤖 Discord Bot is alive!');
+});
+
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`🌍 Web server running on port ${PORT}`);
+});
+
+
 
 const client = new Client({
   intents: [
